@@ -1,7 +1,6 @@
-package main
+package util
 
 import (
-	"fmt"
 	"github.com/gogf/gf/database/gredis"
 	"github.com/gogf/gf/util/gconv"
 )
@@ -34,15 +33,4 @@ func (this *RedisMap) Set(cf string, key string, value string) error {
 	_,err := this.redis.Do("Set",realKey,value)
 	return err
 }
-func main() {
-	host := "127.0.0.1"
-	port := 6379
-	redisMap := NewRedisMap(host,port)
-	cf := "num_to_url"
-	err := redisMap.Set(cf,"1234","testurl")
-	if err != nil {
-		fmt.Println(err)
-	}
-	value,_ := redisMap.Get(cf,"1234")
-	fmt.Println(value)
-}-
+
