@@ -35,7 +35,7 @@ func (this *URLConventor) Generator(url string)(string,error) {
 	}
 }
 func (this *URLConventor) Revert(url string)(string,error) {
-	isBase62Num,err:= regexp.MatchString(`\w{1,6}`,url)
+	isBase62Num,err:= regexp.MatchString(`^\w{1,6}$`,url)
 	if !isBase62Num {
 		return "",err
 	}
